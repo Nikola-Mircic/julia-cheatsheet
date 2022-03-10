@@ -1,7 +1,7 @@
 ######################
 # Characters
 ######################
-#=
+
 # Basic characters
 c1 = 'b'
 
@@ -32,7 +32,7 @@ println(hex_c3) # 􁈴
 println(Int(hex_c1)) # 99
 println(Int(hex_c2)) # 100
 println(Int(hex_c3)) # 1053236
-=#
+
 ######################
 # Strings
 ######################
