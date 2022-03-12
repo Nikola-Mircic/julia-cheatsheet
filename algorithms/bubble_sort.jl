@@ -11,7 +11,7 @@ function bubble_sort(arr)
 end
 
 # Get the array from user input
-input = split(readline())
+input = map(x->parse(Int, x), split(readline()))
 
 # Sort the array
 bubble_sort(input)
