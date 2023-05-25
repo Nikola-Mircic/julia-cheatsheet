@@ -19,6 +19,8 @@ module HeapModule
         return heap
     end
 
+    export create_heap
+
     function parenet(x)
         p = div(x,2)
 
@@ -41,9 +43,13 @@ module HeapModule
         end
     end
 
+    export add
+
     function first(heap::Heap)
         return heap.data[1]
     end
+
+    export first
 
     function pop(heap::Heap)
         t = heap.data[1]
@@ -55,6 +61,8 @@ module HeapModule
         heapify(heap)
         return t
     end
+
+    export pop
     
     heapify(heap::Heap) = heapify(heap.data, heap.size, 1, heap.comp)
 
@@ -76,4 +84,4 @@ module HeapModule
             heapify(a, n, max, cp)
         end
     end
-end
+end;

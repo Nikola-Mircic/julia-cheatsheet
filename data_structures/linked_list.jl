@@ -8,6 +8,9 @@ module LinkedListModule
         val::T
         prev::Union{Node{T},Nothing}
         next::Union{Node{T},Nothing}
+
+        # Default constructor
+        Node(v::T) where {T} = new{T}(v, nothing, nothing)
     end
 
     mutable struct LinkedList
@@ -15,9 +18,6 @@ module LinkedListModule
         tail::Node
         length::Int64
     end
-
-    # Default constructor
-    Node(v::T) where {T} = Node{T}(v, nothing, nothing)
 
     # Display control
     Base.show(io::IO, n::Node) = print(io, "Node {$(n.val)}")
@@ -30,6 +30,8 @@ module LinkedListModule
         return list
     end
 
+    export create_list
+
     function print_list(list)
         t = list.head
 
@@ -40,6 +42,8 @@ module LinkedListModule
             t = t.next
         end
     end
+
+    export print_list
 
     function add(list, x)
         t = Node(x)
@@ -54,6 +58,8 @@ module LinkedListModule
         end
         list.length += 1
     end
+
+    export add
 
     function find(list, x)
         t = list.head
@@ -71,6 +77,8 @@ module LinkedListModule
         return nothing
     end
 
+    export find
+
     function get(list, idx)
         t = list.head.next
 
@@ -82,13 +90,19 @@ module LinkedListModule
         return (idx<0) ? nothing : t.val
     end
 
+    export get
+
     function head(list)
         return list.head.val
     end
 
+    export head
+
     function tail(list)
         return list.tail.val
     end
+
+    export tail
 
     function remove(list, x)
         t = find(list, x)
@@ -100,7 +114,11 @@ module LinkedListModule
         end
     end
 
+    export remove
+
     function empty(list)
         list.head.next = nothing
     end
-end
+
+    export empty
+end;
