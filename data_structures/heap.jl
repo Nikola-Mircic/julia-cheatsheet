@@ -18,6 +18,14 @@ module HeapModule
         heap = Heap(size, 0, Vector{T}(undef, size), comp)
         return heap
     end
+    function create_heap(arr::Array{T}, comp=<) where {T}
+        heap = Heap(length(arr), 0, Vector{T}(undef, length(arr)), comp)
+        for x in arr
+            add(heap, x)
+        end
+
+        return heap
+    end
 
     export create_heap
 
